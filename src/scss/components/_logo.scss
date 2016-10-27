@@ -1,0 +1,65 @@
+.logo-holder {
+    background-color: $white;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 100%;
+    padding-bottom: 20px;
+    justify-content: center;
+    position: absolute;
+    top: -157px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include media('<widescreen') {
+        width: 200px;
+        height: 200px;
+        top: -120px;
+    }
+    @include media('<desktop') {
+        width: 100px;
+        height: 100px;
+        top: -33px;
+        text-align: 150px;
+    }
+     @include media('<tablet') {
+    	width: auto;
+    	left: 10px;
+    	top: 0;
+    	height: auto;
+    	transform:translateX(0);
+    	background-color: transparent;
+    	padding-bottom: 0;
+     
+     }
+    		
+    .navbar-brand {
+        margin-left: 0 !important;
+         @include media('<tablet') {
+        	padding:5px 10px;
+         
+         }
+       
+    }
+    a {
+      @include animate(opacity);
+        display: block;
+        width: 166px;
+        height: auto;
+        &:hover{
+        	opacity: 0.7;
+        }
+        @include media('<widescreen') {
+            width: 130px;
+        }
+        @include media('<desktop') {
+            width: 90px;
+        }
+        img {
+            vertical-align: top;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+#header {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 8px 0 12px;
+    background-color: rgba($white, .43);
+    .navbar-collapse {
+        padding: 0;
+        width: calc(100% - 55px);
+        float: left;
+        @include media('<tablet') {
+            width: 100%;
+            float: right;
+        }
+    }
+    .navbar {
+        border: none;
+        margin-bottom: 0;
+        border: 1px solid #e5be7d;
+        background-color: rgba($white, .6);
+        border-left: none;
+        border-right: none;
+    }
+    .navbar-nav {
+        @include media('<tablet') {
+            float: right;
+            width: 100%;
+            text-align: right;
+            margin-right: 0 !important;
+            margin: 0;
+        }
+        &.nav2 {
+            padding: 0;
+            margin-right: 70px;
+            @include media('<widescreen') {
+                margin-right: 20px;
+            }
+            @include media('<desktop') {
+                margin-right: 0;
+            }
+        }
+        &.nav1 {
+            padding: 0 0 0 151px;
+            @include media('<widescreen') {
+                padding: 0 0 0 50px;
+            }
+            @include media('<tablet') {
+                padding: 0;
+            }
+        }
+        li {
+            padding: 0 15px;
+            text-transform: uppercase;
+            font-size: 12px;
+            @include media('<desktop') {
+                padding: 0 10px;
+            }
+            @include media('<tablet') {
+                padding-bottom: 15px;
+                font-size: 13px;
+            }
+            &.active a {
+                border-color: $yellow;
+                color:$yellow;
+
+            }
+            a {
+                @include animate(color);
+                padding: 0;
+                line-height: 1.1;
+                display: inline-block;
+                padding: 0px 0;
+                border: 1px solid transparent;
+                border-left: none;
+                border-right: none;
+                @include media('<tablet') {
+                    letter-spacing: 3px;
+                }
+            }
+        }
+    }
+    .nav-wrapper {
+        padding: 14px 0 7px;
+        display: flex;
+        justify-content: space-between;
+        @include media('<tablet') {
+            display: block;
+            overflow: hidden;
+        }
+    }
+    .righ-side {
+        @extend %clearfix;
+        ul {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .navbar-toggle {
+        border-radius: 80%;
+        background-color: rgba($white, .7);
+        .icon-bar {
+            height: 3px;
+        }
+    }
+    .navbar-header {
+        float: right;
+    }
+}
