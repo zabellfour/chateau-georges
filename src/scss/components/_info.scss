@@ -1,0 +1,8 @@
+.info {
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 46px 0 58px;
+    @include media('<tablet') {
+        padding: 20px 0;
+    }
+}

@@ -1,0 +1,64 @@
+.slider-default {
+    .slide {
+        height: 670px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        @include media('<widescreen') {
+            height: 580px;
+        }
+        @include media('<desktop') {
+            height: 420px;
+        }
+        @include media('<tablet') {
+            height: 400px
+        }
+        @include media('<phone') {
+            height: 350px;
+        }
+    }
+    .owl-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        .owl-dot {
+            @include animate(border-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border-color: transparent;
+            border: 1px solid transparent;
+            border-color: transparent;
+            margin: 0 6px;
+            &.active,
+            &:hover {
+                border-color: $yellow;
+            }
+            &.active span,
+            &:hover span {
+                background-color: $yellow;
+            }
+            span {
+                @include animate(background-color);
+                width: 16px;
+                height: 16px;
+                margin: 6px;
+                background-color: $white;
+            }
+        }
+    }
+    .slide {
+        padding: 7% 0 30px;
+         @include media('<tablet') {
+        	padding:70px 0 10px;
+         
+         }
+        		
+    }
+    h1 {
+        span {
+            display: block;
+        }
+    }
+}
