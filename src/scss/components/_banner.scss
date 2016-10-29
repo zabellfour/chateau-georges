@@ -1,0 +1,22 @@
+.banner {
+	height: 594px;
+	padding-top: 140px;
+	background-size: cover;
+	background-position: 50% 50%;
+	@include media('<widescreen') {
+		height: 400px;
+		padding-top: 100px;
+	}
+	@include media('<desktop') {
+		height: 300px;
+	}
+	h1 {
+		padding-left: 95px;
+		@include media('<tablet') {
+			padding-left: 45px;
+		}
+		.dark {
+			color: $gray;
+		}
+	}
+}
