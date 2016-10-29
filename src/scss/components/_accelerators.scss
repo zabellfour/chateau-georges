@@ -1,79 +1,95 @@
-.accelerators-holder {
-    display: flex;
-    justify-content: space-between;
-      @include media('<tablet') {
-         	flex-direction: column;
-align-items: center;
-justify-content: center;
-          }
-}
-
-.accelerator-block {
-    width: 265px;
-    height: 265px;
-    background-size: cover;
-    background-position: 50% 50%;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include media('<desktop') {
-        width: 220px;
-        height: 220px;
-    }
-    @include media('<tablet') {
-   margin-bottom: 20px;
-    
-    }
-   		
-    a:hover {
-        .text-hidden {
-            visibility: visible;
-            opacity: 1;
-            max-height: 130px;
-            padding-top: 18px;
-        }
-    }
-    .text-holder {
-        width: 180px;
-        height: 180px;
-        @include media('<desktop') {
-            width: 160px;
-            height: 160px;
-        }
-        background-color: rgba($black, .56);
-        border-radius: 100%;
-        color: $white;
-        text-align: center;
+    .accelerators-holder {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        &.acc-4 {
+              @include media('<992px') {
+                    flex-wrap: wrap;    
+                    padding: 0 10%;
+                }
+            .accelerator-block {
+                flex-shrink: 0;
+                @include media('<widescreen') {
+                    width: 220px;
+                    height: 220px;
+                }
+                @include media('<992px') {
+                        
+                    margin-bottom: 20px;        
+                }
+                .text-holder {
+                    @include media('<widescreen') {
+                        width: 160px;
+                        height: 160px;
+                    }
+                }
+            }
+        }
+        @include media('<tablet') {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+    .accelerator-block {
+        width: 265px;
+        height: 265px;
+        background-size: cover;
+        background-position: 50% 50%;
+        border-radius: 100%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
-         @include media('<desktop') {
-        	font-size: 18px;
-         
-         }
-         
-         		
-        		
-        .text-hidden {
-            @include animate(visibility opacity max-height padding);
-            visibility: hidden;
-            opacity: 0;
-            max-height: 0;
-            font-size: 20px;
-            border-top: 1px solid $white;
-            padding-top: 0;
-            width: 146px;
-             @include media('<desktop') {
-            	font-size: 16px;
-             	max-width: 100px;
-             }
-            		
+        @include media('<desktop') {
+            width: 220px;
+            height: 220px;
         }
-        .text-shown {
-            padding: 18px 0;
+        @include media('<tablet') {
+            margin-bottom: 20px;
+        }
+        a:hover {
+            .text-hidden {
+                visibility: visible;
+                opacity: 1;
+                max-height: 130px;
+                padding-top: 18px;
+            }
+        }
+        .text-holder {
+            width: 180px;
+            height: 180px;
+            @include media('<desktop') {
+                width: 160px;
+                height: 160px;
+            }
+            background-color: rgba($black, .56);
+            border-radius: 100%;
+            color: $white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            @include media('<desktop') {
+                font-size: 18px;
+            }
+            .text-hidden {
+                @include animate(visibility opacity max-height padding);
+                visibility: hidden;
+                opacity: 0;
+                max-height: 0;
+                font-size: 20px;
+                border-top: 1px solid $white;
+                padding-top: 0;
+                width: 146px;
+                @include media('<desktop') {
+                    font-size: 16px;
+                    max-width: 100px;
+                }
+            }
+            .text-shown {
+                padding: 18px 0;
+            }
         }
     }
-}

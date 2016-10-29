@@ -2,14 +2,18 @@ jQuery(function() {
     initTabs();
 });
 
+
+
 $(document).ready(function() {
     $(".slider-preview .owl-carousel").owlCarousel({
-
         items: 1,
-
         loop: true,
-        autoplay: true
+        // autoplay: true,
+        nav: true,
+        dotsContainer: '.dots-holder .owl-dots'
+
     });
+
 
     $('.slider-default').owlCarousel({
         items: 1,
@@ -17,6 +21,7 @@ $(document).ready(function() {
         autoplay: true
 
     });
+    
     $('.slider-gallery').owlCarousel({
         items: 1,
         loop: true,
@@ -24,8 +29,43 @@ $(document).ready(function() {
         nav: true,
         dots: false,
     });
+
+    $(".dots-holder").mCustomScrollbar({
+        theme: "minimal"
+
+    });
 });
 
+
+jQuery(document).ready(function() {
+
+    var dotcount = 1;
+    jQuery('.owl-dot').each(function() {
+        jQuery(this).addClass('dotnumber' + dotcount);
+        jQuery(this).attr('data-info', dotcount);
+        dotcount = dotcount + 1;
+    });
+    var slidecount = 1;
+
+    jQuery('.owl-item').not('.cloned').each(function() {
+        jQuery(this).addClass('slidenumber' + slidecount);
+        slidecount = slidecount + 1;
+    });
+
+    jQuery('.owl-dot').each(function() {
+
+        var grab = jQuery(this).data('info');
+
+        var slidegrab = jQuery('.slidenumber' + grab + ' img').attr('src');
+        console.log(slidegrab);
+
+        jQuery(this).css("background-image", "url(" + slidegrab + ")");
+
+    });
+
+
+
+});
 
 
 
@@ -59,42 +99,9 @@ $(function() {
 
 
 // the following to the end is whats needed for the thumbnails.
-jQuery(document).ready(function() {
-
-
-    // 1) ASSIGN EACH 'DOT' A NUMBER
-    var dotcount = 1;
-
-    jQuery('.owl-dot').each(function() {
-        jQuery(this).addClass('dotnumber' + dotcount);
-        jQuery(this).attr('data-info', dotcount);
-        dotcount = dotcount + 1;
-    });
-
-    // 2) ASSIGN EACH 'SLIDE' A NUMBER
-    var slidecount = 1;
-
-    jQuery('.owl-item').not('.cloned').each(function() {
-        jQuery(this).addClass('slidenumber' + slidecount);
-        slidecount = slidecount + 1;
-    });
-
-    // SYNC THE SLIDE NUMBER IMG TO ITS DOT COUNTERPART (E.G SLIDE 1 IMG TO DOT 1 BACKGROUND-IMAGE)
-    jQuery('.owl-dot').each(function() {
-
-        var grab = jQuery(this).data('info');
-
-        var slidegrab = jQuery('.slidenumber' + grab + ' img').attr('src');
-        console.log(slidegrab);
-
-        jQuery(this).css("background-image", "url(" + slidegrab + ")");
-
-    });
 
 
 
-
-});
 
 /*
  * jQuery Tabs plugin

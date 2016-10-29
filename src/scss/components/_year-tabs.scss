@@ -1,0 +1,183 @@
+.year-tabs {
+    .container {
+        padding: 0;
+    }
+    .flex-container {
+        display: flex;
+        @include media('<tablet') {
+            flex-wrap: wrap;
+        }
+    }
+    .tab-list {
+        @extend %listreset;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 50px 0;
+        a {
+            @include animate(padding transform);
+            color: $white;
+            padding-right: 50px;
+            position: relative;
+            display: inline-block;
+            @include media('<tablet') {
+                padding-right: 120px;
+            }
+            span {
+                @include animate(transform);
+                transform: translate(0);
+                display: inline-block;
+            }
+            &:hover,
+            &.active {
+                padding-right: 166px;
+                @include media('<desktop') {
+                    padding-right: 120px;
+                }
+                @include media('<tablet') {
+                    padding-right: 220px;
+                }
+                span {
+                    transform: translate(130%);
+                }
+                &:after {
+                    top: 100%;
+                }
+            }
+            &:after {
+                @include animate(top);
+                content: '';
+                position: absolute;
+                top: 50%;
+                height: 1px;
+                background-color: $white;
+                left: 50px;
+                right: 0;
+            }
+        }
+    }
+    .tab-list-holder {
+        justify-content: flex-end;
+        display: flex;
+    }
+    .left-bg {
+        width: 35%;
+        position: relative;
+        padding: 30px 0;
+        display: flex;
+        @include media('<tablet') {
+            width: 100%;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        .w50 {
+            width: 50%;
+            .tab-content {
+                @include media('<tablet') {
+                    text-align: center;
+                }
+            }
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            z-index: -2;
+            bottom: 0;
+            left: -9999px;
+            right: 0;
+            background-color: #b59a36;
+        }
+        &-img {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            right: 0;
+            bottom: 0;
+        }
+        .tab-content {
+            img {
+                @include media('<tablet') {
+                    width: 120px;
+                }
+                @include media('<phone') {
+                    width: 90px;
+                }
+            }
+        }
+    }
+    .right-bg {
+        position: relative;
+        width: 60%;
+        color: #8e8770;
+        padding: 45px 93px;
+        background-size: auto;
+        background-position: 120px 100%;
+        background-repeat: no-repeat;
+
+        @include media('<desktop') {
+            font-size: 16px;
+        }
+        @include media('<tablet') {
+            overflow: hidden;
+            font-size: 14px;
+            width: 100%;
+            overflow: hidden;
+        }
+        @include media('<widescreen') {
+            padding: 40px 53px;
+        }
+        @include media('<desktop') {
+            padding: 20px 20px;
+        }
+               h4{
+        	margin-bottom: 17px;	
+        }
+        p{
+        	margin-bottom: 26px;	
+        }
+        .right-bg-img {
+            position: absolute;
+            left: 130px;
+            bottom: 0;
+            @include media('<tablet') {
+                float: right;
+                width: 60%;
+                right: -120px;
+                left: auto;
+            }
+        }
+        .tab-content {
+            img {
+                width: 70px
+            }
+            @include media('<tablet') {
+                float: left;
+                width: 60%;
+            }
+             @include media('<phone') {
+            	width: 80%; 	
+
+             
+             }
+            			
+        }
+        .text-descr {
+            padding-left: 97px;
+            margin-top: -38px;
+            @include media('<widescreen') {
+                padding-left: 0;
+                margin-top: 0;
+            }
+        }
+    }
+    .left-bg,
+    .right-bg {
+        min-height: 720px;
+        @include media('<tablet') {
+            min-height: 0;
+        }
+    }
+}
