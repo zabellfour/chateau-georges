@@ -50,15 +50,72 @@
     }
     .slide {
         padding: 7% 0 30px;
-         @include media('<tablet') {
-        	padding:70px 0 10px;
-         
-         }
-        		
+        @include media('<tablet') {
+            padding: 70px 0 10px;
+        }
     }
     h1 {
         span {
             display: block;
+        }
+    }
+}
+
+.slider-preview {
+    .owl-carouse div {
+        width: 100%;
+    }
+    .owl-carousel .owl-controls .owl-dot {
+        float: left;
+        background-size: cover;
+        margin-top: 10px;
+    }
+    body {
+        background-color: #1f1f1f;
+        background: -webkit-radial-gradient(#1f1f1f, #000000);
+        background: radial-gradient(#1f1f1f, #000000);
+    }
+    h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        background: #000;
+        margin: 0px;
+        padding: 15px 0px;
+        z-index: 200;
+    }
+    .owl-carousel {
+        .owl-dots {
+            position: absolute;
+            top: 64px;
+            left: 0;
+            z-index: 9999;
+            bottom: 0;
+            padding: 38px 15px;
+            background-color: rgba(#766633, .8);
+            width: 234px;
+            overflow: scroll;
+            @include media('<widescreen') {
+                width: 180px;
+            }
+        }
+        .owl-dot {
+            background-size: cover;
+            width: 100%;
+            height: 120px;
+            background-position: 50% 50%;
+            opacity: 1;
+            margin-bottom: 20px;
+            @include media('<widescreen') {
+                height: 80px;
+            }
+            &.active {
+                opacity: 0.56;
+            }
         }
     }
 }
