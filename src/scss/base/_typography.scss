@@ -36,12 +36,15 @@ h1,
     }
     .gray {
         color: $gray;
+        display: block;
     }
     .yellow {
         color: $yellow;
+        display: block;
     }
     .small {
         font-size: 17px;
+        display: block;
     }
 }
 
@@ -50,6 +53,12 @@ h2,
     font-family: $font-family-serif;
     color: $yellow;
     font-weight: 300;
+    @include media('<desktop') {
+        font-size: 50px;
+    }
+    @include media('<tablet') {
+        font-size: 40px;
+    }
 }
 
 h3,
@@ -59,9 +68,7 @@ h4,
 .h4 {}
 
 h5,
-.h5 {
-    ;
-}
+.h5 {}
 
 h6,
 .h6 {}

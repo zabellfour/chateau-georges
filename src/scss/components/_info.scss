@@ -5,4 +5,10 @@
     @include media('<tablet') {
         padding: 20px 0;
     }
+    &.custom-indent{
+    	padding:74px 0 80px;
+    	   @include media('<tablet') {
+        padding: 20px 0;
+    }
+    }
 }

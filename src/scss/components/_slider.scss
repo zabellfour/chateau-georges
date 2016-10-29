@@ -62,59 +62,144 @@
 }
 
 .slider-preview {
-    .owl-carouse div {
-        width: 100%;
-    }
-    .owl-carousel .owl-controls .owl-dot {
-        float: left;
-        background-size: cover;
-        margin-top: 10px;
-    }
-    body {
-        background-color: #1f1f1f;
-        background: -webkit-radial-gradient(#1f1f1f, #000000);
-        background: radial-gradient(#1f1f1f, #000000);
-    }
-    h1 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 30px;
-        color: #fff;
-        text-align: center;
+    position: relative;
+    .dots-holder {
         position: absolute;
-        width: 100%;
-        top: 0px;
-        background: #000;
-        margin: 0px;
-        padding: 15px 0px;
-        z-index: 200;
+        top: 64px;
+        left: 0;
+        z-index: 9999;
+        bottom: 0;
+        padding: 38px 0 30px 15px;
+        background-color: rgba(#766633, .8);
+        width: 234px;
+        overflow: scroll;
+        @include media('<992px') {
+            display: none;
+        }
     }
-    .owl-carousel {
-        .owl-dots {
+    .owl-dots {
+        overflow: hidden;
+        @include media('<widescreen') {
+            width: 180px;
+        }
+    }
+    .owl-carousel .slide-el {
+        position: relative;
+        img{
+            vertical-align: top;
+            max-width: none;
+             @include media('<desktop') {
+
+               width: 120%;
+             
+             }
+              @include media('<tablet') {
+                width: 170%;
+              
+              }
+                      @include media('<phone') {
+                        width: 220%;
+                      
+                      }
+                             
+                    
+        }
+        .slide-content {
             position: absolute;
-            top: 64px;
+            top: 0;
             left: 0;
-            z-index: 9999;
+            right: 0;
             bottom: 0;
-            padding: 38px 15px;
-            background-color: rgba(#766633, .8);
-            width: 234px;
-            overflow: scroll;
+            padding: 134px 0 30px;
+            @include media('<1500px') {
+                padding-left: 250px;
+                padding-top: 110px;
+            }
             @include media('<widescreen') {
-                width: 180px;
+                padding-top: 90px;
+                padding-left: 150px;
+            }
+            @include media('<992px') {
+                padding-left: 0;
+                padding-top: 60px;
+            }
+             @include media('<tablet') {
+            padding-top: 70px;
+             
+             }
+                    
+          
+        }
+    }
+    .owl-dot {
+        @include animate(opacity);
+        background-size: cover;
+        width: 100%;
+        height: 120px;
+        background-position: 50% 50%;
+        opacity: 1;
+        margin-bottom: 20px;
+        cursor: pointer;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include media('<widescreen') {
+            height: 80px;
+        }
+        &.active,
+        &:hover {
+            opacity: 0.56;
+        }
+    }
+    .mCSB_container {
+        margin-right: 15px;
+    }
+    .owl-nav {
+        position: absolute;
+        top: 50%;
+        font-size: 60px;
+        font-family: icomoon;
+        left: 0;
+        right: 0;
+        @include media('<992px') {
+            font-size: 30px;
+        }
+        .owl-prev {
+            @extend .icon-circle-left;
+            color: transparent;
+            position: absolute;
+            left: 250px;
+            width: 60px;
+            overflow: hidden;
+            @include media('<992px') {
+                width: 30px;
+                left: 10px;
+            }
+            &:hover:before {
+                opacity: 0.8;
+            }
+            &:before {
+                @include animate(opacity);
+                color: $white;
             }
         }
-        .owl-dot {
-            background-size: cover;
-            width: 100%;
-            height: 120px;
-            background-position: 50% 50%;
-            opacity: 1;
-            margin-bottom: 20px;
-            @include media('<widescreen') {
-                height: 80px;
+        .owl-next {
+            @extend .icon-circle-right;
+            color: transparent;
+            position: absolute;
+            width: 60px;
+            right: 50px;
+            overflow: hidden;
+            @include media('<992px') {
+                width: 30px;
+                right: 10px;
             }
-            &.active {
-                opacity: 0.56;
+            &:hover:before {
+                opacity: 0.8;
+            }
+            &:before {
+                @include animate(opacity);
+                color: $white;
             }
         }
     }
