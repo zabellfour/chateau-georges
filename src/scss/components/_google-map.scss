@@ -1,0 +1,51 @@
+.map-box {
+    position: relative;
+    margin-bottom: 1px;
+    .map {
+        height: 510px;
+        position: relative;
+        @include media('<=tablet') {
+            height: 380px;
+        }
+    }
+    .map-canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .map-marker {
+        content: "";
+        position: absolute;
+        background: #000;
+        width: 28px;
+        height: 50px;
+    }
+}
+
+.info-box {
+    width:1px;
+    height:1px;
+    .description {
+        position:absolute;
+        left:-10px;
+        top: -15px;
+        width:200px;
+        font-size:13px;
+        font-weight: 600;
+        line-height:14px;
+        color:#8c1b1b;
+        padding:0 0 0 20px;
+        z-index: -1;
+    }
+}
+
+.cbalink {
+    display: none !important;
+}

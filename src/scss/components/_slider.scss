@@ -119,3 +119,97 @@
         }
     }
 }
+
+// -----------------------------Gallery-slider
+.owl-carousel {
+    overflow: hidden;
+}
+.slider-gallery {
+    .slide {
+        height: 572px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        overflow: hidden !important;
+        @include media('<widescreen') {
+            height: 580px;
+        }
+        @include media('<desktop') {
+            height: 420px;
+        }
+        @include media('<tablet') {
+            height: 400px
+        }
+        @include media('<phone') {
+            height: 350px;
+        }
+    }
+    .owl-nav {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9999;
+        .owl-prev {
+            float: left;
+            margin: 0;
+            padding: 0;
+            background-color: $yellow;
+            position: relative;
+            font-size: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            margin-left: -45px;
+            @include media('<desktop') {
+            width: 80px;
+            height: 80px;
+            margin-left: -40px;
+            }
+            @include media('<phone') {
+                width: 60px;
+                height: 60px;
+                margin-left: -30px
+            }
+            &:after {
+                position: absolute;
+                content: "\e909";
+                color: $white;
+                font-size: 40px;
+                line-height: 100px;
+                vertical-align: text-top;
+                left: 50%;
+                font-family: icomoon;
+                display: inline-block;
+                position: absolute;
+                    @include media('<desktop') {
+                    font-size: 30px;
+                    line-height: 80px;
+                    }
+                    @include media('<phone') {
+                    line-height: 60px;
+                }
+            }
+        }
+        .owl-next {
+            @extend .owl-prev;
+           float: right;
+           margin-right: -40px;
+           @include media('<desktop') {
+            width: 80px;
+            height: 80px;
+            }
+            @include media('<phone') {
+            width: 60px;
+            height: 60px;
+            margin-right: -30px;
+            }
+           &:after {
+            position: absolute;
+            content: "\e908";
+            right: 50%;
+            left: auto;
+           } 
+        }
+    }
+}

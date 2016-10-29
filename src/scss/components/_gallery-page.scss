@@ -1,0 +1,19 @@
+.gallery-photo, .gallery-video{
+	h3 {
+		font-family: $font-family-serif;
+		color: $yellow;
+		text-align: center;
+		font-weight: 300;
+		margin: 30px 0;
+	}
+}
+
+.gallery-video {
+	margin-bottom: 55px;
+	.video-module {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
