@@ -2,15 +2,25 @@ jQuery(function() {
     initTabs();
 });
 
-
 $(document).ready(function() {
+    $(".slider-preview .owl-carousel").owlCarousel({
+
+        items: 1,
+
+        loop: true,
+        autoplay: true
+    });
+
     $('.slider-default').owlCarousel({
-        items:1,
-        loop:true,
-        autoplay:true
+        items: 1,
+        loop: true,
+        autoplay: true
 
     });
 });
+
+
+
 
 function initMobileNav() {
     jQuery('body').mobileNav({
@@ -38,6 +48,45 @@ $(function() {
         target: null,
         remove: false
     });
+});
+
+
+// the following to the end is whats needed for the thumbnails.
+jQuery(document).ready(function() {
+
+
+    // 1) ASSIGN EACH 'DOT' A NUMBER
+    var dotcount = 1;
+
+    jQuery('.owl-dot').each(function() {
+        jQuery(this).addClass('dotnumber' + dotcount);
+        jQuery(this).attr('data-info', dotcount);
+        dotcount = dotcount + 1;
+    });
+
+    // 2) ASSIGN EACH 'SLIDE' A NUMBER
+    var slidecount = 1;
+
+    jQuery('.owl-item').not('.cloned').each(function() {
+        jQuery(this).addClass('slidenumber' + slidecount);
+        slidecount = slidecount + 1;
+    });
+
+    // SYNC THE SLIDE NUMBER IMG TO ITS DOT COUNTERPART (E.G SLIDE 1 IMG TO DOT 1 BACKGROUND-IMAGE)
+    jQuery('.owl-dot').each(function() {
+
+        var grab = jQuery(this).data('info');
+
+        var slidegrab = jQuery('.slidenumber' + grab + ' img').attr('src');
+        console.log(slidegrab);
+
+        jQuery(this).css("background-image", "url(" + slidegrab + ")");
+
+    });
+
+
+
+
 });
 
 /*
